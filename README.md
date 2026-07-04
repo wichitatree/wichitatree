@@ -1,93 +1,53 @@
 # Wichita Tree Service Static Website
 
-Simple HTML, CSS, and JavaScript website for Wichita Tree Service with a green/black theme, white copy, favicon/logo assets, jsDelivr-ready photo paths, and contact forms that stay on the page.
+Plain HTML, CSS, and JavaScript website for Wichita Tree Service.
 
 ## Files
 
-- `index.html` - all page content
-- `styles.css` - green/black theme and responsive design
-- `script.js` - mobile menu, current year, and no-page-leave contact form behavior
-- `favicon.ico` and `favicon.png` - browser favicon files
-- `site.webmanifest` - web app icon metadata
-- `assets/brand/` - favicon/logo image sizes made from the uploaded tree icon
-- `assets/photos/tree-placeholder.svg` - fallback image if CDN photos are missing
+- `index.html` — page content
+- `styles.css` — green / black theme
+- `script.js` — menu behavior and contact form
+- `myscript.js` — duplicate safe copy in case an older page references that filename
+- `assets/brand/` — favicon and logo files
+- `assets/photos/` — placeholder photo
 
-## How to use
+## Contact form
 
-Open `index.html` in a browser, or upload the folder to any static host.
+The contact forms submit with JavaScript to FormSubmit AJAX:
 
-Good hosting options:
-
-- GitHub Pages
-- Netlify
-- Vercel static deployment
-- GoDaddy/cPanel public HTML folder
-
-## Contact form setup
-
-The forms are already designed to stay on the page instead of opening the visitor's email app.
-
-In `script.js`, add your email service endpoint here:
-
-```js
-const CONTACT_ENDPOINT = '';
-const RECIPIENT_EMAIL = 'robert@wichita-treeservice.com';
+```text
+https://formsubmit.co/ajax/robert@wichita-treeservice.com
 ```
 
-Use an endpoint from Formspree, Basin, Netlify Forms, GoHighLevel, Zapier, or your own backend. Once the endpoint is added, the form will submit the request in the background and show a success/error message on the page.
+The visitor stays on the page. The first real submission may trigger a confirmation email to `robert@wichita-treeservice.com`. Open that confirmation email and approve it, then future form submissions should be delivered.
 
-Until that endpoint is added, submissions will not email Robert yet. The payload logs in the browser console so the setup can be tested without sending live leads.
+If the form does not send, check:
 
-## Photo CDN setup with jsDelivr
+1. The site is online or running from a local server, not a blocked file preview.
+2. The confirmation email from FormSubmit has been approved.
+3. Old files are not still cached. The page loads `script.js?v=20260704-email-live` to help bust cache.
+4. Remove any old `<script src="myscript.js"></script>` line from earlier templates, or replace the old `myscript.js` with the included safe copy.
 
-Create a public GitHub repository for photos, for example:
+## Local preview
 
-```txt
-wichitatreeservice/wts-media
+Open `index.html` directly, or run a local static server:
+
+```bash
+python -m http.server 8000
 ```
 
-Upload WebP photos into a folder named:
+Then open:
 
-```txt
-photos/
+```text
+http://localhost:8000
 ```
 
-The website is already looking for these photo paths:
+## Photo CDN workflow
 
-```txt
-https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/crane-tree-removal.webp
-https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/tree-removal.webp
-https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/tree-pruning-spider-lift.webp
-https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/stump-grinding.webp
-https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/plant-health-care-tree-injection.webp
-https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/storm-cleanup-grapple-truck.webp
-https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/land-clearing-skid-steer.webp
-https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/robert-phillips-arborist.webp
-https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/wood-recycling-yard.webp
+When you upload photos to a public GitHub repository, update image paths in `index.html` to jsDelivr URLs like:
+
+```text
+https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media@main/photos/crane-tree-removal.webp
 ```
 
-If the CDN images are not available yet, the site falls back to the included tree placeholder SVG.
-
-## Quick edits
-
-Change phone number, address, or content in `index.html`.
-
-Change the form endpoint or destination email in `script.js`.
-
-Change the main colors in the `:root` section of `styles.css`.
-
-## Next upgrades
-
-- Add separate pages for each service
-- Add local city pages around Wichita
-- Connect the form to GoHighLevel, Zapier, or another CRM
-- Add real reviews/testimonials
-- Add LocalBusiness schema and Service schema
-
-## Console error fix
-
-This version wraps the JavaScript in `DOMContentLoaded` and checks that every element exists before attaching events. That prevents errors like:
-
-`Cannot set properties of null (setting 'onclick')`
-
-The site loads `script.js`. A duplicate `myscript.js` file is also included only in case an older upload or hosting setup is still pointing to that filename.
+Use compressed `.webp` images for speed.

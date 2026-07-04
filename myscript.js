@@ -1,11 +1,9 @@
 (() => {
   'use strict';
 
-  // Add your email service endpoint here when ready.
-  // Examples: Formspree, Basin, Netlify Forms, a GoHighLevel/Zapier webhook, or your own server endpoint.
-  // The form is built to stay on the page and send to robert@wichita-treeservice.com through that endpoint.
-  const CONTACT_ENDPOINT = '';
   const RECIPIENT_EMAIL = 'robert@wichita-treeservice.com';
+  const CONTACT_ENDPOINT = `https://formsubmit.co/ajax/${RECIPIENT_EMAIL}`;
+  const PHONE_NUMBER = '316-616-8321';
 
   function onReady(callback) {
     if (document.readyState === 'loading') {
@@ -28,15 +26,84 @@
     const formData = new FormData(form);
 
     return {
-      to: RECIPIENT_EMAIL,
+      _subject: 'New Wichita Tree Service Website Lead',
+      _template: 'table',
+      _captcha: 'false',
       source: 'Wichita Tree Service website',
+      page: window.location.href,
       name: String(formData.get('name') || '').trim(),
       phone: String(formData.get('phone') || '').trim(),
+      email: String(formData.get('email') || '').trim(),
       address: String(formData.get('address') || '').trim(),
       message: String(formData.get('message') || '').trim(),
-      page: window.location.href,
-      submittedAt: new Date().toISOString(),
+      submitted_at: new Date().toLocaleString(),
     };
+  }
+
+  function validatePayload(payload) {
+    if (!payload.name) return 'Please add your name first.';
+    if (!payload.phone) return 'Please add the best phone number to reach you.';
+    return '';
+  }
+
+  async function sendLead(form, submitButton) {
+    const payload = getFormPayload(form);
+    const validationError = validatePayload(payload);
+
+    if (validationError) {
+      setStatus(form, validationError, 'error');
+      return;
+    }
+
+    try {
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.dataset.originalText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+      }
+
+      setStatus(form, 'Sending request...', 'info');
+
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      let result = null;
+      try {
+        result = await response.json();
+      } catch (error) {
+        result = null;
+      }
+
+      if (!response.ok) {
+        const detail = result && result.message ? ` ${result.message}` : '';
+        throw new Error(`Form service returned ${response.status}.${detail}`);
+      }
+
+      form.reset();
+      setStatus(
+        form,
+        `Request sent. Wichita Tree Service will follow up soon. First-time FormSubmit setup may require confirming ${RECIPIENT_EMAIL}.`,
+        'success'
+      );
+    } catch (error) {
+      console.error('Contact form could not send:', error);
+      setStatus(
+        form,
+        `The form could not send yet. Please call ${PHONE_NUMBER}, or confirm the FormSubmit activation email for ${RECIPIENT_EMAIL}.`,
+        'error'
+      );
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = submitButton.dataset.originalText || 'Send Request';
+      }
+    }
   }
 
   onReady(() => {
@@ -64,56 +131,9 @@
     }
 
     contactForms.forEach((form) => {
-      form.addEventListener('submit', async (event) => {
+      form.addEventListener('submit', (event) => {
         event.preventDefault();
-
-        const submitButton = form.querySelector('button[type="submit"]');
-        const payload = getFormPayload(form);
-
-        if (!payload.name || !payload.phone) {
-          setStatus(form, 'Please add your name and phone number first.', 'error');
-          return;
-        }
-
-        if (!CONTACT_ENDPOINT) {
-          console.log('Contact form payload ready for email service:', payload);
-          setStatus(
-            form,
-            `Form is ready. Add an email service endpoint in script.js and it will send to ${RECIPIENT_EMAIL} without leaving the page.`,
-            'info'
-          );
-          return;
-        }
-
-        try {
-          if (submitButton) {
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-          }
-
-          setStatus(form, 'Sending request...', 'info');
-
-          const response = await fetch(CONTACT_ENDPOINT, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload),
-          });
-
-          if (!response.ok) {
-            throw new Error(`Form service returned ${response.status}`);
-          }
-
-          form.reset();
-          setStatus(form, 'Request sent. Wichita Tree Service will follow up soon.', 'success');
-        } catch (error) {
-          console.error(error);
-          setStatus(form, 'The form could not send yet. Please call 316-616-8321.', 'error');
-        } finally {
-          if (submitButton) {
-            submitButton.disabled = false;
-            submitButton.textContent = form.id === 'quick-contact-form' ? 'Send Request' : 'Send Estimate Request';
-          }
-        }
+        sendLead(form, form.querySelector('button[type="submit"]'));
       });
     });
   });
