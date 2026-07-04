@@ -83,3 +83,11 @@ Change the main colors in the `:root` section of `styles.css`.
 - Connect the form to GoHighLevel, Zapier, or another CRM
 - Add real reviews/testimonials
 - Add LocalBusiness schema and Service schema
+
+## Console error fix
+
+This version wraps the JavaScript in `DOMContentLoaded` and checks that every element exists before attaching events. That prevents errors like:
+
+`Cannot set properties of null (setting 'onclick')`
+
+The site loads `script.js`. A duplicate `myscript.js` file is also included only in case an older upload or hosting setup is still pointing to that filename.
