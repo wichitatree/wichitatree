@@ -61,3 +61,8 @@ Address: 4631 W 47th St S, Wichita, KS 67215
 ## Uploading
 
 You can upload the full folder to normal web hosting, GitHub Pages, Netlify, Vercel static hosting, or GoDaddy hosting.
+
+
+## Latest visual update
+
+Theme adjusted to a softer, lighter green accent while keeping the black background and white text for contrast.

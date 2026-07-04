@@ -1,24 +1,24 @@
 :root {
   --black: #030805;
-  --black-2: #07120a;
-  --black-3: #0d1d10;
-  --green-950: #0b2413;
-  --green-900: #12351d;
-  --green-800: #1a4f2b;
-  --green-700: #23733d;
-  --green-600: #2fae5a;
-  --green-500: #47d970;
-  --green-400: #74f29b;
-  --green-300: #a2f7bb;
-  --green-200: #c7ffd6;
-  --green-100: #ecfff0;
+  --black-2: #07140b;
+  --black-3: #102416;
+  --green-950: #12321f;
+  --green-900: #19472b;
+  --green-800: #236338;
+  --green-700: #2f854b;
+  --green-600: #45b96a;
+  --green-500: #65d886;
+  --green-400: #8ef5a9;
+  --green-300: #b6ffd0;
+  --green-200: #d8ffe6;
+  --green-100: #f4fff6;
   --white: #ffffff;
   --soft-white: rgba(255, 255, 255, 0.9);
   --muted-white: rgba(255, 255, 255, 0.72);
-  --line: rgba(116, 242, 155, 0.25);
-  --line-strong: rgba(162, 247, 187, 0.44);
+  --line: rgba(142, 245, 169, 0.3);
+  --line-strong: rgba(182, 255, 208, 0.52);
   --shadow: 0 28px 90px rgba(0, 0, 0, 0.4);
-  --green-glow: 0 0 44px rgba(116, 242, 155, 0.24);
+  --green-glow: 0 0 48px rgba(142, 245, 169, 0.28);
   --radius-lg: 28px;
   --radius-md: 18px;
   --radius-sm: 12px;
@@ -38,9 +38,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--white);
   background:
-    radial-gradient(circle at 18% 0%, rgba(116, 242, 155, 0.3), transparent 34%),
-    radial-gradient(circle at 86% 8%, rgba(71, 217, 112, 0.22), transparent 30%),
-    linear-gradient(180deg, #07120a, #0b1f11 44%, #030604 100%);
+    radial-gradient(circle at 18% 0%, rgba(142, 245, 169, 0.36), transparent 34%),
+    radial-gradient(circle at 86% 8%, rgba(101, 216, 134, 0.28), transparent 30%),
+    linear-gradient(180deg, #0a1a0f, #12321f 44%, #041006 100%);
   line-height: 1.6;
 }
 
@@ -52,8 +52,8 @@ body::before {
   pointer-events: none;
   opacity: 0.18;
   background-image:
-    linear-gradient(rgba(84, 223, 133, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(84, 223, 133, 0.08) 1px, transparent 1px);
+    linear-gradient(rgba(182, 255, 208, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(182, 255, 208, 0.09) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: linear-gradient(180deg, black, transparent 80%);
 }
@@ -72,7 +72,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(5, 18, 9, 0.9);
+  background: rgba(6, 22, 11, 0.9);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
@@ -841,11 +841,11 @@ textarea:focus {
 }
 
 .site-header {
-  background: rgba(5, 18, 9, 0.9);
+  background: rgba(6, 22, 11, 0.9);
 }
 
 .top-contact-bar {
-  background: linear-gradient(90deg, #0b2413, #1a4f2b 45%, #0b2413);
+  background: linear-gradient(90deg, #12321f, #2f854b 45%, #12321f);
   border-bottom: 1px solid rgba(162, 247, 187, 0.28);
 }
 
