@@ -1376,3 +1376,63 @@ textarea:focus {
     align-items: center;
   }
 }
+
+/* About story and missing photo updates */
+.about-section {
+  align-items: start;
+}
+
+.about-image-stack {
+  display: grid;
+  gap: 18px;
+  align-self: start;
+  position: sticky;
+  top: 126px;
+}
+
+.about-image-stack img {
+  min-height: 0;
+  height: auto;
+  aspect-ratio: 4 / 5;
+}
+
+.about-image-stack img + img {
+  aspect-ratio: 1 / 1;
+}
+
+.about-story h3 {
+  margin-top: 28px;
+  color: var(--green-200);
+  font-size: clamp(1.45rem, 3vw, 2.05rem);
+}
+
+.about-story p {
+  color: var(--soft-white);
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.story-signature {
+  margin-top: 26px;
+  color: var(--white) !important;
+  font-size: 1.2rem !important;
+  font-weight: 900;
+}
+
+.credential-line {
+  color: var(--green-200) !important;
+  font-weight: 900;
+}
+
+@media (max-width: 920px) {
+  .about-image-stack {
+    position: static;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 620px) {
+  .about-image-stack {
+    grid-template-columns: 1fr;
+  }
+}

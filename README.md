@@ -11,6 +11,16 @@ Plain HTML/CSS/JS website for Wichita Tree Service.
 - `assets/photos/` — real Wichita Tree Service photos
 - `assets/brand/` — logo mark and favicon files
 
+
+## Latest update
+
+This version adds the two missing service photos:
+
+- `assets/photos/stump-grinding-backyard.webp` and `.jpg`
+- `assets/photos/plant-health-care-tree-injection.webp` and `.jpg`
+
+It also replaces the short About section with the full Robert Phillips / Wichita Tree Service founder story and credentials text.
+
 ## Contact form
 
 The contact forms submit without leaving the page through FormSubmit AJAX:
