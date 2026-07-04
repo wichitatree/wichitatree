@@ -12,13 +12,27 @@
   <meta property="og:type" content="website" />
   <meta property="og:image" content="https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/crane-tree-removal.webp" />
   <link rel="canonical" href="https://www.wichita-treeservice.com/" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/brand/favicon-16x16.png" />
+  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="theme-color" content="#020806" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header" id="top">
+    <div class="top-contact-bar" aria-label="Quick contact">
+      <div class="top-contact-inner">
+        <span class="top-contact-label">Wichita Tree Service</span>
+        <a href="tel:+13166168321">Call 316-616-8321</a>
+        <a href="sms:+13166168321">Text the office</a>
+        <span>4631 W 47th St S, Wichita, KS 67215</span>
+      </div>
+    </div>
     <nav class="navbar" aria-label="Main navigation">
       <a class="logo" href="#top" aria-label="Wichita Tree Service home">
-        <span class="logo-mark">WTS</span>
+        <img class="brand-icon" src="assets/brand/logo-mark.png" alt="" aria-hidden="true" />
         <span class="logo-text">Wichita Tree Service</span>
       </a>
 
@@ -39,6 +53,37 @@
   </header>
 
   <main>
+    <section class="top-contact-section" id="contact">
+      <div class="top-contact-card">
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2>Call now or send a request without leaving the page.</h2>
+          <p>For tree removal, trimming, storm damage, stump grinding, plant health care, municipal work, or debris hauling in the Wichita area.</p>
+        </div>
+        <div class="top-contact-actions">
+          <a class="button button-primary" href="tel:+13166168321">Call 316-616-8321</a>
+          <a class="button button-secondary" href="sms:+13166168321">Text Photos</a>
+          <span class="contact-email">Future form delivery: robert@wichita-treeservice.com</span>
+        </div>
+        <form class="quick-contact-form" id="quick-contact-form" data-contact-form>
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your name" required />
+          </label>
+          <label>
+            Phone
+            <input type="tel" name="phone" placeholder="Best number" required />
+          </label>
+          <label>
+            What do you need?
+            <textarea name="message" rows="3" placeholder="Tree removal, pruning, storm damage, stump grinding, etc."></textarea>
+          </label>
+          <button class="button button-primary" type="submit">Send Request</button>
+          <p class="form-note" data-form-status>Ready to connect to an email service endpoint.</p>
+        </form>
+      </div>
+    </section>
+
     <section class="hero section-pad">
       <div class="hero-content">
         <p class="eyebrow">Arborist-led tree care in Wichita, Kansas</p>
@@ -48,7 +93,7 @@
         </p>
         <div class="hero-actions">
           <a class="button button-primary" href="tel:+13166168321">Call 316-616-8321</a>
-          <a class="button button-secondary" href="#contact">Request an Estimate</a>
+          <a class="button button-secondary" href="#estimate">Request an Estimate</a>
         </div>
         <div class="hero-badges" aria-label="Company highlights">
           <span>Board Certified Master Arborist led</span>
@@ -203,17 +248,18 @@
       <a class="button button-primary" href="tel:+13166168321">Call 316-616-8321</a>
     </section>
 
-    <section class="section section-pad contact-section" id="contact">
+    <section class="section section-pad contact-section" id="estimate">
       <div class="contact-card">
         <p class="eyebrow">Contact</p>
         <h2>Wichita Tree Service</h2>
         <p><strong>Phone:</strong> <a href="tel:+13166168321">316-616-8321</a></p>
+        <p><strong>Email:</strong> robert@wichita-treeservice.com</p>
         <p><strong>Address:</strong> 4631 W 47th St S, Wichita, KS 67215</p>
         <p><strong>Services:</strong> Wichita, Sedgwick County, and surrounding Kansas communities.</p>
         <p><strong>Website:</strong> <a href="https://www.wichita-treeservice.com/">www.wichita-treeservice.com</a></p>
       </div>
 
-      <form class="estimate-form" id="estimate-form">
+      <form class="estimate-form" id="estimate-form" data-contact-form>
         <h3>Request an Estimate</h3>
         <label>
           Name
@@ -231,8 +277,8 @@
           What do you need?
           <textarea name="message" rows="5" placeholder="Tell us about the tree, stump, storm damage, or project."></textarea>
         </label>
-        <button class="button button-primary" type="submit">Create Email Request</button>
-        <p class="form-note">This simple form opens your email app. Connect it to a CRM later.</p>
+        <button class="button button-primary" type="submit">Send Estimate Request</button>
+        <p class="form-note" data-form-status>This stays on the page. Add your email service endpoint in script.js to send to robert@wichita-treeservice.com.</p>
       </form>
     </section>
   </main>

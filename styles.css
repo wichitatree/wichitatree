@@ -781,3 +781,233 @@ textarea:focus {
     align-items: flex-start;
   }
 }
+
+/* Updates: neon green/black brand, favicon logo, and top contact form */
+:root {
+  --green-600: #19b84f;
+  --green-500: #24d963;
+  --green-400: #3bed70;
+  --green-300: #70ff9a;
+  --green-glow: 0 0 42px rgba(59, 237, 112, 0.34);
+}
+
+.site-header {
+  background: rgba(0, 5, 2, 0.92);
+}
+
+.top-contact-bar {
+  background: linear-gradient(90deg, #06120a, #0f3a1f 45%, #06120a);
+  border-bottom: 1px solid rgba(112, 255, 154, 0.24);
+}
+
+.top-contact-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 8px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  color: rgba(255, 255, 255, 0.84);
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.top-contact-inner a {
+  color: var(--green-100);
+  text-decoration: none;
+}
+
+.top-contact-inner a:hover {
+  color: var(--green-300);
+}
+
+.top-contact-label {
+  margin-right: auto;
+  color: var(--green-300);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+}
+
+.navbar {
+  position: relative;
+}
+
+.brand-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid rgba(112, 255, 154, 0.44);
+  box-shadow: 0 0 32px rgba(59, 237, 112, 0.34);
+}
+
+.logo:hover .brand-icon {
+  box-shadow: 0 0 42px rgba(112, 255, 154, 0.5);
+}
+
+.top-contact-section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 30px 22px 0;
+}
+
+.top-contact-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 260px minmax(300px, 0.75fr);
+  gap: 22px;
+  align-items: center;
+  padding: 26px;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(112, 255, 154, 0.22), transparent 34%),
+    linear-gradient(135deg, rgba(5, 18, 10, 0.98), rgba(2, 8, 6, 0.98));
+  border: 1px solid rgba(112, 255, 154, 0.32);
+  border-radius: 28px;
+  box-shadow: 0 24px 85px rgba(0, 0, 0, 0.42), 0 0 55px rgba(36, 217, 99, 0.12);
+}
+
+.top-contact-card h2 {
+  margin-bottom: 10px;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+}
+
+.top-contact-card p:last-child {
+  margin-bottom: 0;
+  color: var(--soft-white);
+}
+
+.top-contact-actions {
+  display: grid;
+  gap: 12px;
+}
+
+.contact-email {
+  display: block;
+  color: var(--green-200);
+  font-size: 0.88rem;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.quick-contact-form,
+.estimate-form {
+  display: grid;
+  gap: 12px;
+}
+
+.quick-contact-form label,
+.estimate-form label {
+  display: grid;
+  gap: 7px;
+  color: var(--white);
+  font-weight: 900;
+}
+
+.quick-contact-form input,
+.quick-contact-form textarea,
+.estimate-form input,
+.estimate-form textarea {
+  background: rgba(0, 5, 2, 0.86);
+  border-color: rgba(112, 255, 154, 0.24);
+}
+
+.quick-contact-form .button,
+.estimate-form .button {
+  width: 100%;
+  justify-content: center;
+}
+
+.form-note.success {
+  color: var(--green-100);
+}
+
+.form-note.error {
+  color: #ffd7d7;
+}
+
+.form-note.info {
+  color: var(--green-200);
+}
+
+.hero {
+  min-height: auto;
+  padding-top: 74px;
+}
+
+.button-primary {
+  color: #001104;
+  background: linear-gradient(135deg, var(--green-300), var(--green-500));
+  box-shadow: 0 0 38px rgba(59, 237, 112, 0.28);
+}
+
+.button-secondary {
+  color: var(--green-100);
+  background: rgba(0, 12, 5, 0.82);
+  border-color: rgba(112, 255, 154, 0.36);
+}
+
+.service-card,
+.contact-card,
+.estimate-form,
+.split-content,
+.dark-section,
+.cta {
+  border-color: rgba(112, 255, 154, 0.26);
+}
+
+@media (max-width: 1040px) {
+  .top-contact-card {
+    grid-template-columns: 1fr;
+  }
+
+  .top-contact-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .contact-email {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 920px) {
+  .nav-links {
+    top: calc(100% + 10px);
+  }
+}
+
+@media (max-width: 620px) {
+  .top-contact-inner {
+    justify-content: flex-start;
+    gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 8px 18px;
+  }
+
+  .top-contact-label {
+    margin-right: 4px;
+  }
+
+  .brand-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .top-contact-section {
+    padding: 20px 18px 0;
+  }
+
+  .top-contact-card {
+    padding: 20px;
+  }
+
+  .top-contact-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 46px;
+  }
+}

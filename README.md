@@ -1,12 +1,15 @@
 # Wichita Tree Service Static Website
 
-This is a simple HTML, CSS, and JavaScript website for Wichita Tree Service.
+Simple HTML, CSS, and JavaScript website for Wichita Tree Service with a green/black theme, white copy, favicon/logo assets, jsDelivr-ready photo paths, and contact forms that stay on the page.
 
 ## Files
 
 - `index.html` - all page content
-- `styles.css` - green theme and responsive design
-- `script.js` - mobile menu, current year, and estimate form mailto behavior
+- `styles.css` - green/black theme and responsive design
+- `script.js` - mobile menu, current year, and no-page-leave contact form behavior
+- `favicon.ico` and `favicon.png` - browser favicon files
+- `site.webmanifest` - web app icon metadata
+- `assets/brand/` - favicon/logo image sizes made from the uploaded tree icon
 - `assets/photos/tree-placeholder.svg` - fallback image if CDN photos are missing
 
 ## How to use
@@ -19,6 +22,21 @@ Good hosting options:
 - Netlify
 - Vercel static deployment
 - GoDaddy/cPanel public HTML folder
+
+## Contact form setup
+
+The forms are already designed to stay on the page instead of opening the visitor's email app.
+
+In `script.js`, add your email service endpoint here:
+
+```js
+const CONTACT_ENDPOINT = '';
+const RECIPIENT_EMAIL = 'robert@wichita-treeservice.com';
+```
+
+Use an endpoint from Formspree, Basin, Netlify Forms, GoHighLevel, Zapier, or your own backend. Once the endpoint is added, the form will submit the request in the background and show a success/error message on the page.
+
+Until that endpoint is added, submissions will not email Robert yet. The payload logs in the browser console so the setup can be tested without sending live leads.
 
 ## Photo CDN setup with jsDelivr
 
@@ -52,13 +70,11 @@ If the CDN images are not available yet, the site falls back to the included tre
 
 ## Quick edits
 
-Change the email address in `script.js` here:
+Change phone number, address, or content in `index.html`.
 
-```js
-window.location.href = `mailto:wichitatreeservice@gmail.com?subject=${subject}&body=${body}`;
-```
+Change the form endpoint or destination email in `script.js`.
 
-Change phone number or address in `index.html`.
+Change the main colors in the `:root` section of `styles.css`.
 
 ## Next upgrades
 
@@ -66,4 +82,4 @@ Change phone number or address in `index.html`.
 - Add local city pages around Wichita
 - Connect the form to GoHighLevel, Zapier, or another CRM
 - Add real reviews/testimonials
-- Add schema markup for LocalBusiness and Service pages
+- Add LocalBusiness schema and Service schema
