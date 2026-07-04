@@ -10,15 +10,15 @@
   <meta property="og:title" content="Wichita Tree Service" />
   <meta property="og:description" content="Arborist-led tree removal, trimming, storm cleanup, stump grinding, and plant health care in Wichita, Kansas." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/crane-tree-removal.webp" />
+  <meta property="og:image" content="https://www.wichita-treeservice.com/assets/photos/hero-bucket-truck.webp" />
   <link rel="canonical" href="https://www.wichita-treeservice.com/" />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/brand/favicon-16x16.png" />
   <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
   <link rel="manifest" href="site.webmanifest" />
-  <meta name="theme-color" content="#020806" />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="theme-color" content="#12351d" />
+  <link rel="stylesheet" href="styles.css?v=20260704-custom-human-check" />
 </head>
 <body>
   <header class="site-header" id="top">
@@ -52,6 +52,22 @@
     </nav>
   </header>
 
+  <div class="call-widget" data-call-widget>
+    <button class="call-widget-toggle" type="button" data-call-toggle aria-expanded="false" aria-controls="call-widget-panel">
+      <span class="call-dot" aria-hidden="true"></span>
+      Call / Text
+    </button>
+    <div class="call-widget-panel" id="call-widget-panel" data-call-panel>
+      <strong>Need tree service now?</strong>
+      <p>Tap to call the Wichita Tree Service office or text photos from the jobsite.</p>
+      <div class="call-widget-actions">
+        <a class="button button-primary" href="tel:+13166168321">Call 316-616-8321</a>
+        <a class="button button-secondary" href="sms:+13166168321">Text Job Photos</a>
+      </div>
+      <a class="callback-link" href="#estimate">Request a callback instead</a>
+    </div>
+  </div>
+
   <main>
     <section class="top-contact-section" id="contact">
       <div class="top-contact-card">
@@ -61,8 +77,9 @@
           <p>For tree removal, trimming, storm damage, stump grinding, plant health care, municipal work, or debris hauling in the Wichita area.</p>
         </div>
         <div class="top-contact-actions">
-          <a class="button button-primary" href="tel:+13166168321">Call 316-616-8321</a>
+          <a class="button button-primary" href="tel:+13166168321">Call Now: 316-616-8321</a>
           <a class="button button-secondary" href="sms:+13166168321">Text Photos</a>
+          <a class="button button-outline" href="#estimate">Request a Callback</a>
           <span class="contact-email">Form sends to: robert@wichita-treeservice.com</span>
         </div>
         <form class="quick-contact-form" id="quick-contact-form" data-contact-form>
@@ -78,8 +95,24 @@
             What do you need?
             <textarea name="message" rows="3" placeholder="Tree removal, pruning, storm damage, stump grinding, etc."></textarea>
           </label>
+          <div class="form-anti-spam" aria-label="Human verification check">
+            <input class="website-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <label class="human-check" data-human-check>
+              <input class="human-check-input" type="checkbox" name="human_check" required />
+              <span class="human-check-box" aria-hidden="true">
+                <span class="human-check-spinner"></span>
+                <span class="human-check-mark">✓</span>
+              </span>
+              <span class="human-check-text">I'm not a robot</span>
+              <span class="human-check-badge" aria-hidden="true">
+                <img src="assets/brand/logo-mark.png" alt="" />
+                <small>Human check</small>
+              </span>
+            </label>
+            <p class="captcha-help">Simple on-page spam check. It is not Google reCAPTCHA.</p>
+          </div>
           <button class="button button-primary" type="submit">Send Request</button>
-          <p class="form-note" data-form-status>This sends without leaving the page. First submission may require email confirmation.</p>
+          <p class="form-note" data-form-status>This sends without leaving the page after the human check is answered.</p>
         </form>
       </div>
     </section>
@@ -104,7 +137,7 @@
       </div>
 
       <div class="hero-card">
-        <img src="https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/crane-tree-removal.webp" alt="Wichita Tree Service crane-assisted tree removal" onerror="this.src='assets/photos/tree-placeholder.svg'" />
+        <img src="assets/photos/hero-bucket-truck.webp" alt="Wichita Tree Service bucket truck and crew on a tree job" onerror="this.src='assets/photos/tree-placeholder.svg'" />
         <div class="hero-card-panel">
           <strong>Serving Wichita & surrounding Kansas communities</strong>
           <p>Tree removal • Pruning • Stump grinding • Storm cleanup • Land clearing</p>
@@ -140,13 +173,13 @@
 
       <div class="service-grid">
         <article class="service-card">
-          <img src="https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/tree-removal.webp" alt="Tree removal service in Wichita" onerror="this.src='assets/photos/tree-placeholder.svg'" />
+          <img src="assets/photos/hero-bucket-truck.webp" alt="Wichita Tree Service bucket truck on a tree removal job" onerror="this.src='assets/photos/tree-placeholder.svg'" />
           <h3>Tree Removal</h3>
           <p>Safe removal of dead, hazardous, storm-damaged, and hard-to-access trees using the right equipment for the job.</p>
         </article>
 
         <article class="service-card">
-          <img src="https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/tree-pruning-spider-lift.webp" alt="Tree trimming and pruning in Wichita" onerror="this.src='assets/photos/tree-placeholder.svg'" />
+          <img src="assets/photos/climber-pruning.webp" alt="Wichita Tree Service climber pruning a tree" onerror="this.src='assets/photos/tree-placeholder.svg'" />
           <h3>Tree Trimming & Pruning</h3>
           <p>Professional pruning focused on structure, clearance, deadwood removal, end-weight reduction, and long-term tree health.</p>
         </article>
@@ -164,13 +197,13 @@
         </article>
 
         <article class="service-card">
-          <img src="https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/storm-cleanup-grapple-truck.webp" alt="Storm cleanup with grapple truck" onerror="this.src='assets/photos/tree-placeholder.svg'" />
+          <img src="assets/photos/grapple-storm-cleanup.webp" alt="Grapple truck loading tree debris after storm cleanup" onerror="this.src='assets/photos/tree-placeholder.svg'" />
           <h3>Storm Cleanup</h3>
           <p>Emergency tree removal, debris hauling, crane-assisted removals, high-hanger cleanup, and regional storm response.</p>
         </article>
 
         <article class="service-card">
-          <img src="https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/land-clearing-skid-steer.webp" alt="Land clearing service" onerror="this.src='assets/photos/tree-placeholder.svg'" />
+          <img src="assets/photos/grapple-storm-cleanup.webp" alt="Wichita Tree Service grapple truck and bucket truck handling tree debris" onerror="this.src='assets/photos/tree-placeholder.svg'" />
           <h3>Land Clearing</h3>
           <p>Brush clearing, right-of-way work, lot cleanup, grapple hauling, and wood waste handling.</p>
         </article>
@@ -179,7 +212,7 @@
 
     <section class="split-section section-pad" id="about">
       <div class="split-image">
-        <img src="https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/robert-phillips-arborist.webp" alt="Robert Phillips Wichita Tree Service arborist" onerror="this.src='assets/photos/tree-placeholder.svg'" />
+        <img src="assets/photos/arborist-bucket-work.webp" alt="Wichita Tree Service arborist working from a bucket truck" onerror="this.src='assets/photos/tree-placeholder.svg'" />
       </div>
       <div class="split-content">
         <p class="eyebrow">About Wichita Tree Service</p>
@@ -222,20 +255,28 @@
           <p>Green waste handling, mulch production, firewood material, and responsible reuse of tree debris where practical.</p>
         </article>
       </div>
+
+      <div class="municipal-image-strip">
+        <img src="assets/photos/grapple-storm-cleanup.webp" alt="Wichita Tree Service grapple truck handling debris" onerror="this.src='assets/photos/tree-placeholder.svg'" />
+        <div>
+          <strong>Built for cleanup volume</strong>
+          <p>Bucket trucks, grapple trucks, loaders, lifts, and experienced crews help move projects faster and keep jobsites cleaner.</p>
+        </div>
+      </div>
     </section>
 
     <section class="section section-pad" id="gallery">
       <div class="section-heading">
         <p class="eyebrow">Gallery</p>
-        <h2>Photos from the field</h2>
-        <p>Upload your best job photos to GitHub and serve them through jsDelivr using the filenames in the README.</p>
+        <h2>Real Wichita Tree Service photos</h2>
+        <p>Bucket trucks, climbers, arborist work, and debris cleanup from the field.</p>
       </div>
 
       <div class="gallery-grid">
-        <img src="https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/crane-tree-removal.webp" alt="Crane tree removal" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-        <img src="https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/tree-pruning-spider-lift.webp" alt="Tree pruning from spider lift" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-        <img src="https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/storm-cleanup-grapple-truck.webp" alt="Storm cleanup grapple truck" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-        <img src="https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media/photos/wood-recycling-yard.webp" alt="Wood recycling yard" onerror="this.src='assets/photos/tree-placeholder.svg'" />
+        <img src="assets/photos/hero-bucket-truck.webp" alt="Wichita Tree Service bucket truck and wrapped equipment" onerror="this.src='assets/photos/tree-placeholder.svg'" />
+        <img src="assets/photos/climber-pruning.webp" alt="Wichita Tree Service climber in the canopy" onerror="this.src='assets/photos/tree-placeholder.svg'" />
+        <img src="assets/photos/arborist-bucket-work.webp" alt="Arborist working near a bucket truck" onerror="this.src='assets/photos/tree-placeholder.svg'" />
+        <img src="assets/photos/grapple-storm-cleanup.webp" alt="Grapple truck loading tree debris" onerror="this.src='assets/photos/tree-placeholder.svg'" />
       </div>
     </section>
 
@@ -245,7 +286,10 @@
         <h2>Get an estimate from Wichita Tree Service.</h2>
         <p>Call, text, or send a message with your address, photos, and what you need done.</p>
       </div>
-      <a class="button button-primary" href="tel:+13166168321">Call 316-616-8321</a>
+      <div class="cta-actions">
+        <a class="button button-primary" href="tel:+13166168321">Call 316-616-8321</a>
+        <a class="button button-secondary" href="sms:+13166168321">Text Job Photos</a>
+      </div>
     </section>
 
     <section class="section section-pad contact-section" id="estimate">
@@ -277,8 +321,24 @@
           What do you need?
           <textarea name="message" rows="5" placeholder="Tell us about the tree, stump, storm damage, or project."></textarea>
         </label>
+        <div class="form-anti-spam" aria-label="Human verification check">
+          <input class="website-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <label class="human-check" data-human-check>
+            <input class="human-check-input" type="checkbox" name="human_check" required />
+            <span class="human-check-box" aria-hidden="true">
+              <span class="human-check-spinner"></span>
+              <span class="human-check-mark">✓</span>
+            </span>
+            <span class="human-check-text">I'm not a robot</span>
+            <span class="human-check-badge" aria-hidden="true">
+              <img src="assets/brand/logo-mark.png" alt="" />
+              <small>Human check</small>
+            </span>
+          </label>
+          <p class="captcha-help">Simple on-page spam check. It is not Google reCAPTCHA.</p>
+        </div>
         <button class="button button-primary" type="submit">Send Estimate Request</button>
-        <p class="form-note" data-form-status>This sends without leaving the page. First submission may require email confirmation.</p>
+        <p class="form-note" data-form-status>This sends without leaving the page after the human check is answered.</p>
       </form>
     </section>
   </main>
@@ -288,6 +348,6 @@
     <a href="#top">Back to top</a>
   </footer>
 
-  <script src="script.js?v=20260704-email-live"></script>
+  <script src="script.js?v=20260704-custom-human-check"></script>
 </body>
 </html>

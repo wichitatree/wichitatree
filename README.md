@@ -1,53 +1,53 @@
 # Wichita Tree Service Static Website
 
-Plain HTML, CSS, and JavaScript website for Wichita Tree Service.
+Plain HTML/CSS/JS website for Wichita Tree Service.
 
 ## Files
 
-- `index.html` — page content
-- `styles.css` — green / black theme
-- `script.js` — menu behavior and contact form
-- `myscript.js` — duplicate safe copy in case an older page references that filename
-- `assets/brand/` — favicon and logo files
-- `assets/photos/` — placeholder photo
+- `index.html` — main page
+- `styles.css` — green/black theme and responsive layout
+- `script.js` — menu, call widget, custom human check, and AJAX form submit
+- `myscript.js` — safety copy of the same JavaScript in case an older page references this filename
+- `assets/photos/` — real Wichita Tree Service photos
+- `assets/brand/` — logo mark and favicon files
 
 ## Contact form
 
-The contact forms submit with JavaScript to FormSubmit AJAX:
+The contact forms submit without leaving the page through FormSubmit AJAX:
 
 ```text
 https://formsubmit.co/ajax/robert@wichita-treeservice.com
 ```
 
-The visitor stays on the page. The first real submission may trigger a confirmation email to `robert@wichita-treeservice.com`. Open that confirmation email and approve it, then future form submissions should be delivered.
-
-If the form does not send, check:
-
-1. The site is online or running from a local server, not a blocked file preview.
-2. The confirmation email from FormSubmit has been approved.
-3. Old files are not still cached. The page loads `script.js?v=20260704-email-live` to help bust cache.
-4. Remove any old `<script src="myscript.js"></script>` line from earlier templates, or replace the old `myscript.js` with the included safe copy.
-
-## Local preview
-
-Open `index.html` directly, or run a local static server:
-
-```bash
-python -m http.server 8000
-```
-
-Then open:
+The first time the form is used, FormSubmit may send an activation email to:
 
 ```text
-http://localhost:8000
+robert@wichita-treeservice.com
 ```
 
-## Photo CDN workflow
+Open that email and confirm it before relying on lead delivery.
 
-When you upload photos to a public GitHub repository, update image paths in `index.html` to jsDelivr URLs like:
+## Spam protection
+
+This version includes:
+
+- A custom “I’m not a robot” style human check
+- A short verification delay/spinner
+- A hidden honeypot field
+- JavaScript validation before email submit
+
+This is intentionally **not Google reCAPTCHA** and does not use Google branding or Google keys. It is a simple on-page check for a static website. For stronger spam protection later, use Google reCAPTCHA, Cloudflare Turnstile, hCaptcha, or a backend/serverless form endpoint.
+
+## Call/Text widget
+
+The floating widget and header buttons use:
 
 ```text
-https://cdn.jsdelivr.net/gh/wichitatreeservice/wts-media@main/photos/crane-tree-removal.webp
+Phone: 316-616-8321
+Email target: robert@wichita-treeservice.com
+Address: 4631 W 47th St S, Wichita, KS 67215
 ```
 
-Use compressed `.webp` images for speed.
+## Uploading
+
+You can upload the full folder to normal web hosting, GitHub Pages, Netlify, Vercel static hosting, or GoDaddy hosting.
