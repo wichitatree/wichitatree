@@ -1,9 +1,0 @@
-<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <rect width="1200" height="800" fill="#dff4e7"/>
-  <circle cx="600" cy="315" r="185" fill="#36a862"/>
-  <circle cx="485" cy="365" r="130" fill="#238348"/>
-  <circle cx="715" cy="375" r="145" fill="#176136"/>
-  <rect x="548" y="430" width="104" height="220" rx="18" fill="#6f4f28"/>
-  <path d="M235 655C330 590 421 574 512 607C610 642 699 635 779 586C850 543 927 555 996 655H235Z" fill="#114528"/>
-  <text x="600" y="720" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="800" fill="#092516">Wichita Tree Service</text>
-</svg>
