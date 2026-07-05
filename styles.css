@@ -1436,3 +1436,149 @@ textarea:focus {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Brand green refresh: rgb(129, 215, 66) */
+
+:root {
+  --green-700: #4f9822;
+  --green-600: #69ba33;
+  --green-500: rgb(129, 215, 66);
+  --green-400: #99e35f;
+  --green-300: #b8ef87;
+  --green-200: #d9f8b9;
+  --green-100: #f4ffe9;
+  --line: rgba(129, 215, 66, 0.24);
+  --line-strong: rgba(184, 239, 135, 0.42);
+  --green-glow: 0 0 46px rgba(129, 215, 66, 0.22);
+}
+
+body {
+  background:
+    radial-gradient(circle at 16% 0%, rgba(129, 215, 66, 0.24), transparent 34%),
+    radial-gradient(circle at 84% 8%, rgba(184, 239, 135, 0.16), transparent 28%),
+    linear-gradient(180deg, #081106, #11220a 44%, #050905 100%);
+}
+
+body::before {
+  background-image:
+    linear-gradient(rgba(184, 239, 135, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 239, 135, 0.08) 1px, transparent 1px);
+}
+
+.eyebrow,
+.light .eyebrow,
+.top-contact-label,
+.contact-email,
+.captcha-label span,
+.form-note.info,
+.site-footer a,
+.contact-card a {
+  color: var(--green-300);
+}
+
+.site-header {
+  background: rgba(5, 16, 5, 0.92);
+}
+
+.top-contact-bar {
+  background: linear-gradient(90deg, #162b0c, #4f9822 22%, rgb(129, 215, 66) 50%, #4f9822 78%, #162b0c);
+  border-bottom: 1px solid rgba(184, 239, 135, 0.26);
+}
+
+.logo-mark {
+  background: linear-gradient(135deg, var(--green-300), var(--green-500));
+  border-color: rgba(244, 255, 233, 0.5);
+}
+
+.button-primary,
+.call-widget-toggle {
+  color: #061004;
+  background: linear-gradient(135deg, var(--green-300), var(--green-500));
+  box-shadow: 0 0 34px rgba(129, 215, 66, 0.20);
+}
+
+.button-primary:hover,
+.call-widget-toggle:hover {
+  background: linear-gradient(135deg, var(--green-200), var(--green-400));
+}
+
+.button-secondary,
+.button-outline {
+  color: var(--green-100);
+  background: rgba(7, 16, 5, 0.8);
+  border-color: rgba(184, 239, 135, 0.32);
+}
+
+.button-secondary:hover,
+.button-outline:hover {
+  background: rgba(129, 215, 66, 0.12);
+  border-color: rgba(184, 239, 135, 0.48);
+}
+
+.hero-card {
+  background: linear-gradient(145deg, #274614, #030805);
+  box-shadow: var(--shadow), var(--green-glow);
+}
+
+.hero-card::after {
+  background:
+    linear-gradient(180deg, rgba(2, 8, 6, 0.08), rgba(2, 8, 6, 0.96)),
+    linear-gradient(90deg, rgba(79, 152, 34, 0.46), transparent 60%);
+}
+
+.trust-bar div {
+  background: linear-gradient(180deg, rgba(79, 152, 34, 0.72), rgba(8, 19, 6, 0.94));
+}
+
+.service-card,
+.contact-card,
+.estimate-form,
+.split-content {
+  background: linear-gradient(180deg, rgba(24, 43, 12, 0.95), rgba(7, 18, 10, 0.97));
+}
+
+.split-content {
+  background: linear-gradient(180deg, rgba(79, 152, 34, 0.36), rgba(7, 18, 10, 0.88));
+}
+
+.dark-section {
+  background:
+    radial-gradient(circle at 10% 20%, rgba(129, 215, 66, 0.18), transparent 30%),
+    linear-gradient(135deg, #061109, #274614 48%, #061109);
+}
+
+.feature-grid article,
+.municipal-image-strip div,
+.call-widget-panel {
+  background: rgba(5, 14, 4, 0.78);
+}
+
+.cta {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(244, 255, 233, 0.12), transparent 36%),
+    linear-gradient(135deg, #4f9822, #081106);
+}
+
+.top-contact-card {
+  background:
+    radial-gradient(circle at 8% 0%, rgba(184, 239, 135, 0.24), transparent 34%),
+    linear-gradient(135deg, rgba(24, 43, 12, 0.98), rgba(5, 18, 9, 0.98));
+  box-shadow: 0 24px 85px rgba(0, 0, 0, 0.36), 0 0 55px rgba(129, 215, 66, 0.14);
+}
+
+.hero-badges span,
+.form-anti-spam {
+  background: rgba(79, 152, 34, 0.20);
+}
+
+.check-list li::before {
+  background: var(--green-400);
+  box-shadow: 0 0 20px rgba(129, 215, 66, 0.28);
+}
+
+input:focus,
+textarea:focus {
+  outline: 3px solid rgba(129, 215, 66, 0.18);
+  border-color: var(--green-400);
+}
