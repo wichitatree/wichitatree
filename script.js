@@ -1,368 +1,235 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wichita Tree Service | Tree Removal, Trimming & Storm Cleanup</title>
-  <meta name="description" content="Wichita Tree Service provides professional tree removal, trimming, pruning, stump grinding, plant health care, land clearing, and storm cleanup in Wichita, KS and surrounding areas." />
-  <meta name="keywords" content="Wichita tree service, tree removal Wichita KS, tree trimming Wichita, arborist Wichita, stump grinding Wichita, storm cleanup Kansas" />
-  <meta name="author" content="Wichita Tree Service" />
-  <meta property="og:title" content="Wichita Tree Service" />
-  <meta property="og:description" content="Arborist-led tree removal, trimming, storm cleanup, stump grinding, and plant health care in Wichita, Kansas." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://www.wichita-treeservice.com/assets/photos/hero-bucket-truck.webp" />
-  <link rel="canonical" href="https://www.wichita-treeservice.com/" />
-  <link rel="icon" href="favicon.ico" sizes="any" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/brand/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/brand/favicon-16x16.png" />
-  <link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png" />
-  <link rel="manifest" href="site.webmanifest" />
-  <meta name="theme-color" content="#8ef5a9" />
-  <link rel="stylesheet" href="styles.css?v=20260704-about-photos" />
-</head>
-<body>
-  <header class="site-header" id="top">
-    <div class="top-contact-bar" aria-label="Quick contact">
-      <div class="top-contact-inner">
-        <span class="top-contact-label">Wichita Tree Service</span>
-        <a href="tel:+13166168321">Call 316-616-8321</a>
-        <a href="sms:+13166168321">Text the office</a>
-        <span>4631 W 47th St S, Wichita, KS 67215</span>
-      </div>
-    </div>
-    <nav class="navbar" aria-label="Main navigation">
-      <a class="logo" href="#top" aria-label="Wichita Tree Service home">
-        <img class="brand-icon" src="assets/brand/logo-mark.png" alt="" aria-hidden="true" />
-        <span class="logo-text">Wichita Tree Service</span>
-      </a>
+(() => {
+  'use strict';
 
-      <button class="menu-toggle" aria-expanded="false" aria-controls="nav-links">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+  const RECIPIENT_EMAIL = 'robert@wichita-treeservice.com';
+  const CONTACT_ENDPOINT = `https://formsubmit.co/ajax/${RECIPIENT_EMAIL}`;
+  const PHONE_NUMBER = '316-616-8321';
+  const CALL_PANEL_STORAGE_KEY = 'wts-call-widget-open';
 
-      <ul class="nav-links" id="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#municipal">Municipal</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  function onReady(callback) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', callback, { once: true });
+    } else {
+      callback();
+    }
+  }
 
-  <div class="call-widget" data-call-widget>
-    <button class="call-widget-toggle" type="button" data-call-toggle aria-expanded="false" aria-controls="call-widget-panel">
-      <span class="call-dot" aria-hidden="true"></span>
-      Call / Text
-    </button>
-    <div class="call-widget-panel" id="call-widget-panel" data-call-panel>
-      <strong>Need tree service now?</strong>
-      <p>Tap to call the Wichita Tree Service office or text photos from the jobsite.</p>
-      <div class="call-widget-actions">
-        <a class="button button-primary" href="tel:+13166168321">Call 316-616-8321</a>
-        <a class="button button-secondary" href="sms:+13166168321">Text Job Photos</a>
-      </div>
-      <a class="callback-link" href="#estimate">Request a callback instead</a>
-    </div>
-  </div>
+  function setStatus(form, message, type = 'info') {
+    const status = form.querySelector('[data-form-status]');
+    if (!status) return;
 
-  <main>
-    <section class="top-contact-section" id="contact">
-      <div class="top-contact-card">
-        <div>
-          <p class="eyebrow">Contact</p>
-          <h2>Call now or send a request without leaving the page.</h2>
-          <p>For tree removal, trimming, storm damage, stump grinding, plant health care, municipal work, or debris hauling in the Wichita area.</p>
-        </div>
-        <div class="top-contact-actions">
-          <a class="button button-primary" href="tel:+13166168321">Call Now: 316-616-8321</a>
-          <a class="button button-secondary" href="sms:+13166168321">Text Photos</a>
-          <a class="button button-outline" href="#estimate">Request a Callback</a>
-          <span class="contact-email">Form sends to: robert@wichita-treeservice.com</span>
-        </div>
-        <form class="quick-contact-form" id="quick-contact-form" data-contact-form>
-          <label>
-            Name
-            <input type="text" name="name" placeholder="Your name" required />
-          </label>
-          <label>
-            Phone
-            <input type="tel" name="phone" placeholder="Best number" required />
-          </label>
-          <label>
-            What do you need?
-            <textarea name="message" rows="3" placeholder="Tree removal, pruning, storm damage, stump grinding, etc."></textarea>
-          </label>
-          <div class="form-anti-spam" aria-label="Human verification check">
-            <input class="website-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
-            <label class="human-check" data-human-check>
-              <input class="human-check-input" type="checkbox" name="human_check" required />
-              <span class="human-check-box" aria-hidden="true">
-                <span class="human-check-spinner"></span>
-                <span class="human-check-mark">✓</span>
-              </span>
-              <span class="human-check-text">I'm not a robot</span>
-              <span class="human-check-badge" aria-hidden="true">
-                <img src="assets/brand/logo-mark.png" alt="" />
-                <small>Human check</small>
-              </span>
-            </label>
-            <p class="captcha-help">Simple on-page spam check. It is not Google reCAPTCHA.</p>
-          </div>
-          <button class="button button-primary" type="submit">Send Request</button>
-          <p class="form-note" data-form-status>This sends without leaving the page after the human check is answered.</p>
-        </form>
-      </div>
-    </section>
+    status.textContent = message;
+    status.classList.remove('success', 'error', 'info');
+    status.classList.add(type);
+  }
 
-    <section class="hero section-pad">
-      <div class="hero-content">
-        <p class="eyebrow">Arborist-led tree care in Wichita, Kansas</p>
-        <h1>Tree removal, trimming, storm cleanup, and plant health care done right.</h1>
-        <p class="hero-copy">
-          Wichita Tree Service serves residential, commercial, municipal, and government customers with professional tree work backed by experienced crews, specialized equipment, and arborist-level knowledge.
-        </p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="tel:+13166168321">Call 316-616-8321</a>
-          <a class="button button-secondary" href="#estimate">Request an Estimate</a>
-        </div>
-        <div class="hero-badges" aria-label="Company highlights">
-          <span>Board Certified Master Arborist led</span>
-          <span>ISA Certified Arborists</span>
-          <span>Storm Response</span>
-          <span>Municipal Work</span>
-        </div>
-      </div>
+  function setupHumanCheck(form) {
+    const wrapper = form.querySelector('[data-human-check]');
+    const input = form.querySelector('input[name="human_check"]');
+    if (!wrapper || !input) return;
 
-      <div class="hero-card">
-        <img src="assets/photos/hero-bucket-truck.webp" alt="Wichita Tree Service bucket truck and crew on a tree job" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-        <div class="hero-card-panel">
-          <strong>Serving Wichita & surrounding Kansas communities</strong>
-          <p>Tree removal • Pruning • Stump grinding • Storm cleanup • Land clearing</p>
-        </div>
-      </div>
-    </section>
+    let verifyTimer = null;
+    form.dataset.humanVerified = 'false';
+    form.dataset.humanCheckLoadedAt = String(Date.now());
+    input.checked = false;
 
-    <section class="trust-bar" aria-label="Company qualifications">
-      <div>
-        <strong>Founded in 2012</strong>
-        <span>Local Wichita company</span>
-      </div>
-      <div>
-        <strong>BCMA + ISA Arborists</strong>
-        <span>Credentialed tree care</span>
-      </div>
-      <div>
-        <strong>Specialized Equipment</strong>
-        <span>Crane, grapple, lifts, loaders</span>
-      </div>
-      <div>
-        <strong>Residential to Government</strong>
-        <span>Small jobs to large contracts</span>
-      </div>
-    </section>
+    function resetHumanCheck() {
+      window.clearTimeout(verifyTimer);
+      form.dataset.humanVerified = 'false';
+      input.checked = false;
+      input.disabled = false;
+      input.removeAttribute('aria-busy');
+      wrapper.classList.remove('checking', 'verified');
+    }
 
-    <section class="section section-pad" id="services">
-      <div class="section-heading">
-        <p class="eyebrow">Services</p>
-        <h2>Complete tree care and debris solutions</h2>
-        <p>From a single backyard tree to citywide storm cleanup, our team is built for safe, efficient tree work.</p>
-      </div>
+    input.addEventListener('change', () => {
+      if (input.checked && form.dataset.humanVerified !== 'true') {
+        input.checked = false;
+        input.disabled = true;
+        input.setAttribute('aria-busy', 'true');
+        wrapper.classList.add('checking');
+        wrapper.classList.remove('verified');
 
-      <div class="service-grid">
-        <article class="service-card">
-          <img src="assets/photos/hero-bucket-truck.webp" alt="Wichita Tree Service bucket truck on a tree removal job" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-          <h3>Tree Removal</h3>
-          <p>Safe removal of dead, hazardous, storm-damaged, and hard-to-access trees using the right equipment for the job.</p>
-        </article>
+        verifyTimer = window.setTimeout(() => {
+          input.disabled = false;
+          input.removeAttribute('aria-busy');
+          input.checked = true;
+          form.dataset.humanVerified = 'true';
+          wrapper.classList.remove('checking');
+          wrapper.classList.add('verified');
+        }, 650);
+        return;
+      }
 
-        <article class="service-card">
-          <img src="assets/photos/climber-pruning.webp" alt="Wichita Tree Service climber pruning a tree" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-          <h3>Tree Trimming & Pruning</h3>
-          <p>Professional pruning focused on structure, clearance, deadwood removal, end-weight reduction, and long-term tree health.</p>
-        </article>
+      if (!input.checked) {
+        resetHumanCheck();
+      }
+    });
 
-        <article class="service-card">
-          <img src="assets/photos/stump-grinding-backyard.webp" alt="Wichita Tree Service stump grinding a backyard stump" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-          <h3>Stump Grinding</h3>
-          <p>Stump grinding for removals, cleanup, landscape restoration, and trip hazard reduction.</p>
-        </article>
+    form.addEventListener('reset', () => {
+      window.setTimeout(resetHumanCheck, 0);
+    });
+  }
 
-        <article class="service-card">
-          <img src="assets/photos/plant-health-care-tree-injection.webp" alt="Arborjet tree injection for plant health care" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-          <h3>Plant Health Care</h3>
-          <p>Tree injections, deep root feeding, pest and disease support, and arborist recommendations for declining trees.</p>
-        </article>
+  function getFormPayload(form) {
+    const formData = new FormData(form);
 
-        <article class="service-card">
-          <img src="assets/photos/grapple-storm-cleanup.webp" alt="Grapple truck loading tree debris after storm cleanup" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-          <h3>Storm Cleanup</h3>
-          <p>Emergency tree removal, debris hauling, crane-assisted removals, high-hanger cleanup, and regional storm response.</p>
-        </article>
+    return {
+      _subject: 'New Wichita Tree Service Website Lead',
+      _template: 'table',
+      _captcha: 'false',
+      _honey: String(formData.get('website') || '').trim(),
+      source: 'Wichita Tree Service website',
+      page: window.location.href,
+      name: String(formData.get('name') || '').trim(),
+      phone: String(formData.get('phone') || '').trim(),
+      email: String(formData.get('email') || '').trim(),
+      address: String(formData.get('address') || '').trim(),
+      message: String(formData.get('message') || '').trim(),
+      human_check: form.dataset.humanVerified === 'true' ? 'checked' : 'not checked',
+      submitted_at: new Date().toLocaleString(),
+    };
+  }
 
-        <article class="service-card">
-          <img src="assets/photos/grapple-storm-cleanup.webp" alt="Wichita Tree Service grapple truck and bucket truck handling tree debris" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-          <h3>Land Clearing</h3>
-          <p>Brush clearing, right-of-way work, lot cleanup, grapple hauling, and wood waste handling.</p>
-        </article>
-      </div>
-    </section>
+  function validatePayload(form, payload) {
+    const humanInput = form.querySelector('input[name="human_check"]');
+    const loadedAt = Number(form.dataset.humanCheckLoadedAt || 0);
+    const enoughTimePassed = loadedAt && Date.now() - loadedAt > 900;
 
-    <section class="split-section section-pad about-section" id="about">
-      <div class="split-image about-image-stack">
-        <img src="assets/photos/arborist-bucket-work.webp" alt="Wichita Tree Service arborist working from a bucket truck" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-        <img src="assets/photos/stump-grinding-backyard.webp" alt="Wichita Tree Service stump grinder removing a backyard stump" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-      </div>
-      <div class="split-content about-story">
-        <p class="eyebrow">About Wichita Tree Service</p>
-        <h2>Built in Wichita. Built by tree people.</h2>
-        <p>If you’re looking for a tree service in Wichita, KS, you’ve come to the right place. Before you give Griselda or Claudia a call to schedule a free estimate, take a moment to learn a little about me and my company.</p>
-        <p>Wichita Tree Service was founded with the goal of becoming the most professional tree service in Wichita, KS.</p>
+    if (payload._honey) return 'Spam protection blocked this submission.';
+    if (!payload.name) return 'Please add your name first.';
+    if (!payload.phone) return 'Please add the best phone number to reach you.';
+    if (!humanInput || !humanInput.checked || form.dataset.humanVerified !== 'true') {
+      return 'Please check the human verification box before sending.';
+    }
+    if (!enoughTimePassed) return 'Please wait a second and try again.';
 
-        <h3>Robert’s First Truck</h3>
-        <p>My name is Robert Phillips, the proud owner of Wichita Tree Service. I established this business back in 2012 when I was a financially struggling college student right here in Wichita. Offering tree removal, stump grinding, tree pruning, and tree trimming services to the local area, I created this website, which quickly gained traction. Before I knew it, Wichita Tree Service was born almost overnight. I enlisted the help of some friends, acquired a small stump grinder from the Home Depot rental department, and got to work cutting trees.</p>
-        <p>At that time, my only equipment consisted of a beat-up F-150 truck I purchased from a salvage auction and a boat trailer I found at a garage sale. After fixing up the truck and adding some boards to the boat trailer, my journey began. Facing considerable competition in town, I knew I needed to differentiate myself. From then on, I made a firm decision to do things differently—to do things the right way. No cutting corners, no spiking trees, no topping, and no lion-tailing trees. I adhered to all A.N.S.I. and I.S.A. standards, obtained the necessary insurance, and ensured we wore proper personal protective equipment. The plan was simple: to maintain a higher level of professionalism than our competitors and hope that people would take notice.</p>
-        <p>Wichita Tree Service was founded with a simple goal: to become the most professional tree service in Wichita, KS.</p>
-        <p>I modeled my business after larger tree services that prioritized ethical practices, believing it to be the key to their success. I dedicated myself to educating both my customers and myself about the detrimental effects of topping, spiking, and lion-tailing trees. I focused on becoming a certified arborist, immersing myself in books, audiobooks, and extensive research to expand my knowledge. Eventually, I took the arborist exam and passed it on my first attempt.</p>
-        <p>Today, I can proudly say that the plan worked. Through countless 100-hour workweeks, and plenty of blood, sweat, and tears from both myself and our team, Wichita Tree Service continued to grow year after year.</p>
-        <p>What started with an old F-150 and a homemade trailer has grown into one of the largest and most well-equipped tree service companies in Kansas. We now operate multiple tree crews, grapple trucks, bucket trucks, tracked lifts, stump grinders, cranes, and specialized equipment that allow us to safely handle projects ranging from routine pruning to large-scale storm damage and complex tree removals.</p>
-        <p>Over the years, we hired great people, invested in better equipment, and focused on providing the highest level of professional tree care possible. Today, we provide tree removal, tree trimming, stump grinding, plant health care, land clearing, and emergency storm response services. While Wichita remains our home base for residential tree care, our crews regularly travel throughout Kansas and across the United States for storm response, municipal projects, utility work, and large-scale tree care operations.</p>
-        <p>Along the way, I continued my education and earned several industry certifications, including ISA Board Certified Master Arborist, Kansas Certified Arborist, Tree Risk Assessment Qualification (TRAQ), and TCIA Certified Tree Care Safety Professional (CTSP). As of this update, Wichita Tree Service has more credentialed arborists on staff than any other tree service company in the Wichita area, with three ISA Certified Arborists and one ISA Board Certified Master Arborist. I believe education never stops, and our company continues to invest heavily in training, safety, and professional development.</p>
-        <p>Throughout this journey, I’ve learned that doing things the right way is important, but hard work alone isn’t enough. Success comes from surrounding yourself with good people and earning the trust of your customers. Wichita Tree Service would not be where it is today without the loyal customers who trusted us with their trees, the employees who have dedicated themselves to the company, and the friends and family members who supported us along the way.</p>
-        <p>For that, I am incredibly grateful.</p>
-        <p>Thank you for taking the time to learn a little about our story. We would be honored to earn your business and show you why so many homeowners, businesses, municipalities, and property managers throughout the Wichita area trust Wichita Tree Service with their trees.</p>
-        <p class="story-signature">— Robert Phillips</p>
-        <p class="credential-line">ISA Board Certified Master Arborist • Kansas Certified Arborist • TCIA Certified Tree Care Safety Professional (CTSP) • Tree Risk Assessment Qualified (TRAQ)</p>
+    return '';
+  }
 
-        <ul class="check-list">
-          <li>No topping or lion-tailing</li>
-          <li>No climbing spikes on live trees being preserved</li>
-          <li>ANSI-informed pruning and safety standards</li>
-          <li>Residential, commercial, municipal, and storm work</li>
-        </ul>
-      </div>
-    </section>
+  async function sendLead(form, submitButton) {
+    const payload = getFormPayload(form);
+    const validationError = validatePayload(form, payload);
 
-    <section class="dark-section section-pad" id="municipal">
-      <div class="section-heading light">
-        <p class="eyebrow">Commercial, Municipal & Storm Response</p>
-        <h2>Equipped for large-scale tree and debris projects</h2>
-        <p>
-          Wichita Tree Service handles street-side removals, storm debris cleanup, right-of-way clearing, crane removals, and regional disaster response work.
-        </p>
-      </div>
+    if (validationError) {
+      setStatus(form, validationError, 'error');
+      return;
+    }
 
-      <div class="feature-grid">
-        <article>
-          <h3>Municipal Tree Work</h3>
-          <p>City tree removals, clearance pruning, public right-of-way work, hauling, and project documentation.</p>
-        </article>
-        <article>
-          <h3>Storm Debris Response</h3>
-          <p>Grapple trucks, crane support, skid steers, loaders, and crews ready for storm-damaged trees and debris hauling.</p>
-        </article>
-        <article>
-          <h3>Wood Recycling Yard</h3>
-          <p>Green waste handling, mulch production, firewood material, and responsible reuse of tree debris where practical.</p>
-        </article>
-      </div>
+    try {
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.dataset.originalText = submitButton.textContent;
+        submitButton.textContent = 'Sending...';
+      }
 
-      <div class="municipal-image-strip">
-        <img src="assets/photos/grapple-storm-cleanup.webp" alt="Wichita Tree Service grapple truck handling debris" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-        <div>
-          <strong>Built for cleanup volume</strong>
-          <p>Bucket trucks, grapple trucks, loaders, lifts, and experienced crews help move projects faster and keep jobsites cleaner.</p>
-        </div>
-      </div>
-    </section>
+      setStatus(form, 'Sending request...', 'info');
 
-    <section class="section section-pad" id="gallery">
-      <div class="section-heading">
-        <p class="eyebrow">Gallery</p>
-        <h2>Real Wichita Tree Service photos</h2>
-        <p>Bucket trucks, climbers, arborist work, and debris cleanup from the field.</p>
-      </div>
+      const response = await fetch(CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
 
-      <div class="gallery-grid">
-        <img src="assets/photos/hero-bucket-truck.webp" alt="Wichita Tree Service bucket truck and wrapped equipment" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-        <img src="assets/photos/climber-pruning.webp" alt="Wichita Tree Service climber in the canopy" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-        <img src="assets/photos/arborist-bucket-work.webp" alt="Arborist working near a bucket truck" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-        <img src="assets/photos/grapple-storm-cleanup.webp" alt="Grapple truck loading tree debris" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-        <img src="assets/photos/stump-grinding-backyard.webp" alt="Backyard stump grinding by Wichita Tree Service" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-        <img src="assets/photos/plant-health-care-tree-injection.webp" alt="Tree injection used for plant health care" onerror="this.src='assets/photos/tree-placeholder.svg'" />
-      </div>
-    </section>
+      let result = null;
+      try {
+        result = await response.json();
+      } catch (error) {
+        result = null;
+      }
 
-    <section class="cta section-pad">
-      <div>
-        <p class="eyebrow">Need a tree looked at?</p>
-        <h2>Get an estimate from Wichita Tree Service.</h2>
-        <p>Call, text, or send a message with your address, photos, and what you need done.</p>
-      </div>
-      <div class="cta-actions">
-        <a class="button button-primary" href="tel:+13166168321">Call 316-616-8321</a>
-        <a class="button button-secondary" href="sms:+13166168321">Text Job Photos</a>
-      </div>
-    </section>
+      if (!response.ok) {
+        const detail = result && result.message ? ` ${result.message}` : '';
+        throw new Error(`Form service returned ${response.status}.${detail}`);
+      }
 
-    <section class="section section-pad contact-section" id="estimate">
-      <div class="contact-card">
-        <p class="eyebrow">Contact</p>
-        <h2>Wichita Tree Service</h2>
-        <p><strong>Phone:</strong> <a href="tel:+13166168321">316-616-8321</a></p>
-        <p><strong>Email:</strong> robert@wichita-treeservice.com</p>
-        <p><strong>Address:</strong> 4631 W 47th St S, Wichita, KS 67215</p>
-        <p><strong>Services:</strong> Wichita, Sedgwick County, and surrounding Kansas communities.</p>
-        <p><strong>Website:</strong> <a href="https://www.wichita-treeservice.com/">www.wichita-treeservice.com</a></p>
-      </div>
+      form.reset();
+      setStatus(
+        form,
+        `Request sent. Wichita Tree Service will follow up soon. First-time FormSubmit setup may require confirming ${RECIPIENT_EMAIL}.`,
+        'success'
+      );
+    } catch (error) {
+      console.error('Contact form could not send:', error);
+      setStatus(
+        form,
+        `The form could not send yet. Please call ${PHONE_NUMBER}, text photos, or confirm the FormSubmit activation email for ${RECIPIENT_EMAIL}.`,
+        'error'
+      );
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = submitButton.dataset.originalText || 'Send Request';
+      }
+    }
+  }
 
-      <form class="estimate-form" id="estimate-form" data-contact-form>
-        <h3>Request an Estimate</h3>
-        <label>
-          Name
-          <input type="text" name="name" placeholder="Your name" required />
-        </label>
-        <label>
-          Phone
-          <input type="tel" name="phone" placeholder="Your phone number" required />
-        </label>
-        <label>
-          Address
-          <input type="text" name="address" placeholder="Job address" />
-        </label>
-        <label>
-          What do you need?
-          <textarea name="message" rows="5" placeholder="Tell us about the tree, stump, storm damage, or project."></textarea>
-        </label>
-        <div class="form-anti-spam" aria-label="Human verification check">
-          <input class="website-field" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <label class="human-check" data-human-check>
-            <input class="human-check-input" type="checkbox" name="human_check" required />
-            <span class="human-check-box" aria-hidden="true">
-              <span class="human-check-spinner"></span>
-              <span class="human-check-mark">✓</span>
-            </span>
-            <span class="human-check-text">I'm not a robot</span>
-            <span class="human-check-badge" aria-hidden="true">
-              <img src="assets/brand/logo-mark.png" alt="" />
-              <small>Human check</small>
-            </span>
-          </label>
-          <p class="captcha-help">Simple on-page spam check. It is not Google reCAPTCHA.</p>
-        </div>
-        <button class="button button-primary" type="submit">Send Estimate Request</button>
-        <p class="form-note" data-form-status>This sends without leaving the page after the human check is answered.</p>
-      </form>
-    </section>
-  </main>
+  function setupCallWidget() {
+    const widget = document.querySelector('[data-call-widget]');
+    const toggle = document.querySelector('[data-call-toggle]');
+    const panel = document.querySelector('[data-call-panel]');
+    if (!widget || !toggle || !panel) return;
 
-  <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Wichita Tree Service. All rights reserved.</p>
-    <a href="#top">Back to top</a>
-  </footer>
+    function setOpen(isOpen) {
+      widget.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', String(isOpen));
+      try {
+        window.sessionStorage.setItem(CALL_PANEL_STORAGE_KEY, isOpen ? '1' : '0');
+      } catch (error) {
+        // Storage is optional. Some browsers block it in strict modes.
+      }
+    }
 
-  <script src="script.js?v=20260704-soft-light-green"></script>
-</body>
-</html>
+    let storedOpen = false;
+    try {
+      storedOpen = window.sessionStorage.getItem(CALL_PANEL_STORAGE_KEY) === '1';
+    } catch (error) {
+      storedOpen = false;
+    }
+
+    setOpen(storedOpen);
+
+    toggle.addEventListener('click', () => {
+      setOpen(!widget.classList.contains('open'));
+    });
+  }
+
+  onReady(() => {
+    const menuButton = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('#nav-links');
+    const year = document.querySelector('#year');
+    const contactForms = document.querySelectorAll('[data-contact-form]');
+
+    if (year) {
+      year.textContent = new Date().getFullYear();
+    }
+
+    if (menuButton && navLinks) {
+      menuButton.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        menuButton.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      navLinks.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          menuButton.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    contactForms.forEach((form) => {
+      setupHumanCheck(form);
+
+      form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        sendLead(form, form.querySelector('button[type="submit"]'));
+      });
+    });
+
+    setupCallWidget();
+  });
+})();
